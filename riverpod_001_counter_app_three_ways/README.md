@@ -1,16 +1,16 @@
-# riverpod_counter_app_three_ways
+# Riverpod #001 - Counter App Three Ways
+An example showing you three different ways to create a counter application - using ChangeNotifier, StateNotifier and StateProvider.
 
-A new Flutter project.
+See the video tutorial down below:
 
-## Getting Started
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/nvwZO5wgCYQ/0.jpg)](https://www.youtube.com/watch?v=nvwZO5wgCYQ)
 
-This project is a starting point for a Flutter application.
+Direct link: https://www.youtube.com/watch?v=nvwZO5wgCYQ
 
-A few resources to get you started if this is your first Flutter project:
+## Important
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+You need to run the following command to generate the platform folders (Android, iOS, Web, etc).
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+flutter create .
+```
