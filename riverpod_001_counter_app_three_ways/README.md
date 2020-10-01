@@ -1,11 +1,11 @@
 # Riverpod #001 - Counter App Three Ways
-An example showing you three different ways to create a counter application - using ChangeNotifier, StateNotifier and StateProvider.
+An example showing you three different ways to create a counter application - using ChangeNotifier, StateNotifier and StateProvider. This is an introduction to Riverpod, covering the basics, but also providing some insight on the different notifiers.
 
 See the video tutorial down below:
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/nvwZO5wgCYQ/0.jpg)](https://www.youtube.com/watch?v=nvwZO5wgCYQ)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ttUNVsIl1tM/0.jpg)](https://www.youtube.com/watch?v=ttUNVsIl1tM)
 
-Direct link: https://www.youtube.com/watch?v=nvwZO5wgCYQ
+Direct link: https://www.youtube.com/watch?v=ttUNVsIl1tM
 
 ## Important
 
