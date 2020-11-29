@@ -16,6 +16,6 @@ https://pub.dev/publishers/funwith.app/packages
 
 ## Flutter Riverpod tutorials
 
-**Riverpod 001 - Counter App Three Ways** \[ [Video](https://www.youtube.com/watch?v=nvwZO5wgCYQ) \] \[ [Code](https://github.com/funwithflutter/flutter_ui_tips/tree/master/tip_001_stretchy_header) \] - Learn how, and when, to use ChangeNotifier, ValueNotifier and StateProvider. This in introduction to Riverpod, to get your feet wet.
+**Riverpod 001 - Counter App Three Ways** \[ [Video](https://www.youtube.com/watch?v=ttUNVsIl1tM) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/master/riverpod_001_counter_app_three_ways) \] - Learn how, and when, to use ChangeNotifier, ValueNotifier and StateProvider. This in introduction to Riverpod, to get your feet wet.
 
 
