@@ -1,16 +1,16 @@
-# riverpod_002_reading_providers
+# Riverpod #002 - Reading providers best practices
+Learn about the different ways to read providers, and when to use which. This example shows Consumer, ConsumerWidget, and using ProviderReference.
 
-A new Flutter project.
+See the video tutorial down below:
 
-## Getting Started
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/EtcJsUpvZMc/0.jpg)](https://www.youtube.com/watch?v=EtcJsUpvZMc)
 
-This project is a starting point for a Flutter application.
+Direct link: https://www.youtube.com/watch?v=EtcJsUpvZMc
 
-A few resources to get you started if this is your first Flutter project:
+## Important
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+You need to run the following command to generate the platform folders (Android, iOS, Web, etc).
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+flutter create .
+```
