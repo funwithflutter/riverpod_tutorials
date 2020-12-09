@@ -69,7 +69,7 @@ class TodosNotifier extends StateNotifier<AsyncValue<List<Todo>>> {
 
   Future<void> add(String description) async {
     _cacheState();
-    state = state.whenData((value) => [...value]..add(Todo(description)));
+    state = state.whenData((todos) => [...todos]..add(Todo(description)));
 
     try {
       await read(todoRepositoryProvider).addTodo(description);
@@ -140,7 +140,7 @@ class TodosNotifier extends StateNotifier<AsyncValue<List<Todo>>> {
   }
 
   void _cacheState() {
-    previousState = state.whenData((value) => value);
+    previousState = state;
   }
 
   void _resetState() {

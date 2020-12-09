@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
+      // Overriding for testing
       overrides: [
         todoRepositoryProvider.overrideWithValue(FakeTodoRepository())
       ],
