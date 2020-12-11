@@ -20,3 +20,5 @@ https://pub.dev/publishers/funwith.app/packages
 
 **Riverpod 002 - Reading providers best practices** \[ [Video](https://www.youtube.com/watch?v=EtcJsUpvZMc) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/master/riverpod_002_reading_providers) \] - Learn about the different ways to read providers, and when to use which.
 
+**Riverpod 003 - FutureProvider, AsyncValue and Error Handling** \[ [Video](https://www.youtube.com/watch?v=2vcjEuIkU0g) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/master/riverpod_003_async_value) \] - Master AsyncValue and learn how to use it in combination with StateNotifier with error handling.
+
