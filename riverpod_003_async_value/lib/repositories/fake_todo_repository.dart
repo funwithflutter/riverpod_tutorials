@@ -21,7 +21,7 @@ Todo Error: $error
   }
 }
 
-const double errorLikelihood = 0.4;
+const double errorLikelihood = 0.1;
 
 class FakeTodoRepository implements TodoRepository {
   FakeTodoRepository() : random = Random() {

@@ -69,7 +69,7 @@ class TodosNotifier extends StateNotifier<AsyncValue<List<Todo>>> {
 
   Future<void> add(String description) async {
     _cacheState();
-    state = state.whenData((todos) => [...todos]..add(Todo(description)));
+    state = state.whenData((todos) => todos..add(Todo(description)));
 
     try {
       await read(todoRepositoryProvider).addTodo(description);
