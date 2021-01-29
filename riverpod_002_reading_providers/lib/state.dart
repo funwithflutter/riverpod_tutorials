@@ -25,7 +25,7 @@ class TodoNotifier extends StateNotifier<List<Todo>> {
   final Reader read;
 
   void add(String description) {
-    state = [...state]..add(Todo(description));
+    state = state..add(Todo(description));
   }
 
   void toggle(String id) {
