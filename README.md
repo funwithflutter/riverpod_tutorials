@@ -22,13 +22,13 @@ https://pub.dev/publishers/funwith.app/packages
 
 ## Flutter Riverpod tutorials
 
-**Riverpod 001 - Understanding the different notifiers** \[ [Video](https://www.youtube.com/watch?v=ttUNVsIl1tM) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/master/riverpod_001_counter_app_three_ways) \] - Learn how, and when, to use ChangeNotifier, ValueNotifier and StateProvider. This in introduction to Riverpod, to get your feet wet.
+**Riverpod 001 - Understanding the different notifiers** \[ [Video](https://www.youtube.com/watch?v=ttUNVsIl1tM) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/main/riverpod_001_counter_app_three_ways) \] - Learn how, and when, to use ChangeNotifier, ValueNotifier and StateProvider. This in introduction to Riverpod, to get your feet wet.
 
-**Riverpod 002 - Reading providers best practices** \[ [Video](https://www.youtube.com/watch?v=EtcJsUpvZMc) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/master/riverpod_002_reading_providers) \] - Learn about the different ways to read providers, and when to use which.
+**Riverpod 002 - Reading providers best practices** \[ [Video](https://www.youtube.com/watch?v=EtcJsUpvZMc) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/main/riverpod_002_reading_providers) \] - Learn about the different ways to read providers, and when to use which.
 
-**Riverpod 003 - FutureProvider, AsyncValue and Error Handling** \[ [Video](https://www.youtube.com/watch?v=2vcjEuIkU0g) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/master/riverpod_003_async_value) \] - Master AsyncValue and learn how to use it in combination with StateNotifier with error handling.
+**Riverpod 003 - FutureProvider, AsyncValue and Error Handling** \[ [Video](https://www.youtube.com/watch?v=2vcjEuIkU0g) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/main/riverpod_003_async_value) \] - Master AsyncValue and learn how to use it in combination with StateNotifier with error handling.
 
-**Riverpod 004 - Freezed: Unions and Data Classes** \[ [Video](https://www.youtube.com/watch?v=U8_Z_O5iC8s) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/master/riverpod_004_freezed) \] - Learn how to use Freezed and how it improves your Riverpod development workflow.
+**Riverpod 004 - Freezed: Unions and Data Classes** \[ [Video](https://www.youtube.com/watch?v=U8_Z_O5iC8s) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/main/riverpod_004_freezed) \] - Learn how to use Freezed and how it improves your Riverpod development workflow.
 
 ## Code Snippets
 
