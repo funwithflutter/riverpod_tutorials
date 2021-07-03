@@ -1,3 +1,19 @@
+## A note on breaking changes and old versions of Riverpod
+Riverpod and Freezed have gone through plenty of breaking changes since the publication of the first YouTube videos. Breaking changes are also likely for future versions of both packages. Updating the repository is easy, however reshooting the videos would be too time consuming. As such, there are historic branches that will reference the old code as shown in the YouTube videos. While the `master` repository will be kept up to date with the current stable versions of Riverpod and Freezed.
+
+Updated videos will be made to discuss breaking changes and highlight what has changed.
+
+### Branches
+
+---
+
+#### [history/001_pre-version-one](https://github.com/funwithflutter/riverpod_tutorials/tree/history/001_pre-version-one) (03/Jul/2021)
+
+    flutter_riverpod: 0.12.1
+    freezed: 0.12.6
+
+---
+
 ## Important
 
 You need to run the following command in the relevant project folder to generate the platform folders (Android, iOS, Web, etc). Some of the tutorials will have these already included, if needed.
