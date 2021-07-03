@@ -3,7 +3,7 @@ Riverpod and Freezed have gone through plenty of breaking changes since the publ
 
 Updated videos will be made to discuss breaking changes and highlight what has changed.
 
-### Branches
+### Historic Branches
 
 ---
 
