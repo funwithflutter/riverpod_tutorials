@@ -1,9 +1,11 @@
 ## A note on breaking changes and old versions of Riverpod
-Riverpod and Freezed have gone through plenty of breaking changes since the publication of the first YouTube videos. Breaking changes are also likely for future versions of both packages. Updating the repository is easy, however reshooting the videos would be too time consuming. As such, there are historic branches that will reference the old code as shown in the YouTube videos. While the `master` repository will be kept up to date with the current stable versions of Riverpod and Freezed.
+Riverpod and Freezed have gone through plenty of breaking changes since the publication of the first YouTube videos. Breaking changes are also likely for future versions of both packages. Updating the repository is easy, however reshooting the videos would be too time consuming. As such, there are historic branches that will reference the old code as shown in the YouTube videos. While the `main` repository will be kept up to date with the current stable versions of Riverpod and Freezed.
 
-Updated videos will be made to discuss breaking changes and highlight what has changed.
+Updated videos will be made to discuss breaking changes and highlight what has changed. 
 
 ### Historic Branches
+
+:exclamation: Always use the `main` branch for latest Riverpod and Freezed conventions. Use the historic branch for code reference to the old videos.
 
 ---
 
@@ -12,7 +14,7 @@ Updated videos will be made to discuss breaking changes and highlight what has c
     flutter_riverpod: 0.12.1
     freezed: 0.12.6
 
-Affected Tutorials:
+Affected Tutorials/Videos:
 - Riverpod 001 - Understanding the different notifiers
 - Riverpod 002 - Reading providers best practices
 - Riverpod 003 - FutureProvider, AsyncValue and Error Handling
