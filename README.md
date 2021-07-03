@@ -2,7 +2,7 @@
 > 
 This is an historic branch! Branch name: `history/001_pre-version-one`
 
-This branch accommodates old videos, as breaking changes were introduced with V1.0 of Riverpod, and the (main)[https://github.com/funwithflutter/riverpod_tutorials] repository is kept up to date with the latest versions of Riverpod and Freezed.
+This branch accommodates old videos, as breaking changes were introduced with V1.0 of Riverpod, and the [main](https://github.com/funwithflutter/riverpod_tutorials) repository is kept up to date with the latest versions of Riverpod and Freezed.
 
 ## Important
 
