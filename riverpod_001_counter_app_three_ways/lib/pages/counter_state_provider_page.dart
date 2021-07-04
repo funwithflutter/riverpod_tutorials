@@ -8,6 +8,20 @@ final _isEvenProvider = Provider<bool>((ref) {
   return (counter.state % 2 == 0);
 });
 
+final _evenCounter = Provider<int>((ref) {
+  // ref.listen<StateController<int>>(_counterProvider, (value) {
+  //   if (value.state.isEven) {
+  //     ref.state++;
+  //   }
+  // });
+  ref.listen<bool>(_isEvenProvider, (value) {
+    if (value) {
+      ref.state++;
+    }
+  });
+  return 0;
+});
+
 class CounterStateProviderPage extends ConsumerWidget {
   const CounterStateProviderPage({Key? key}) : super(key: key);
 
@@ -24,6 +38,7 @@ class CounterStateProviderPage extends ConsumerWidget {
           children: [
             Text('Count: $counter'),
             CounterIsEven(),
+            EvenCounter(),
           ],
         ),
       ),
@@ -42,5 +57,15 @@ class CounterIsEven extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isEven = ref.watch(_isEvenProvider);
     return Text(isEven ? 'Is even' : 'Not even');
+  }
+}
+
+class EvenCounter extends ConsumerWidget {
+  const EvenCounter({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final evenCount = ref.watch(_evenCounter);
+    return Text('$evenCount');
   }
 }
