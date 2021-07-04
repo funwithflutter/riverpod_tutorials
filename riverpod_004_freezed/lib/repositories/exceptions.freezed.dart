@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'exceptions.dart';
 
@@ -9,11 +9,13 @@ part of 'exceptions.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$TodoFailureTearOff {
   const _$TodoFailureTearOff();
 
-// ignore: unused_element
   RetrieveTodoFailure retrieveFailure(
       {String description = 'Error retrieving todos'}) {
     return RetrieveTodoFailure(
@@ -21,14 +23,12 @@ class _$TodoFailureTearOff {
     );
   }
 
-// ignore: unused_element
   AddTodoFailure addFailure({String description = 'Error adding todo'}) {
     return AddTodoFailure(
       description: description,
     );
   }
 
-// ignore: unused_element
   RemoveTodoFailure removeFailure(
       {String description = 'Error removing todo'}) {
     return RemoveTodoFailure(
@@ -36,14 +36,12 @@ class _$TodoFailureTearOff {
     );
   }
 
-// ignore: unused_element
   EditTodoFailure editFailure({String description = 'Error editing todo'}) {
     return EditTodoFailure(
       description: description,
     );
   }
 
-// ignore: unused_element
   ToggleTodoFailure toggleFailure(
       {String description = 'Error toggling todo'}) {
     return ToggleTodoFailure(
@@ -53,49 +51,54 @@ class _$TodoFailureTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TodoFailure = _$TodoFailureTearOff();
 
 /// @nodoc
 mixin _$TodoFailure {
-  String get description;
+  String get description => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult retrieveFailure(String description),
-    @required TResult addFailure(String description),
-    @required TResult removeFailure(String description),
-    @required TResult editFailure(String description),
-    @required TResult toggleFailure(String description),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(String description) retrieveFailure,
+    required TResult Function(String description) addFailure,
+    required TResult Function(String description) removeFailure,
+    required TResult Function(String description) editFailure,
+    required TResult Function(String description) toggleFailure,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult retrieveFailure(String description),
-    TResult addFailure(String description),
-    TResult removeFailure(String description),
-    TResult editFailure(String description),
-    TResult toggleFailure(String description),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String description)? retrieveFailure,
+    TResult Function(String description)? addFailure,
+    TResult Function(String description)? removeFailure,
+    TResult Function(String description)? editFailure,
+    TResult Function(String description)? toggleFailure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult retrieveFailure(RetrieveTodoFailure value),
-    @required TResult addFailure(AddTodoFailure value),
-    @required TResult removeFailure(RemoveTodoFailure value),
-    @required TResult editFailure(EditTodoFailure value),
-    @required TResult toggleFailure(ToggleTodoFailure value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(RetrieveTodoFailure value) retrieveFailure,
+    required TResult Function(AddTodoFailure value) addFailure,
+    required TResult Function(RemoveTodoFailure value) removeFailure,
+    required TResult Function(EditTodoFailure value) editFailure,
+    required TResult Function(ToggleTodoFailure value) toggleFailure,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult retrieveFailure(RetrieveTodoFailure value),
-    TResult addFailure(AddTodoFailure value),
-    TResult removeFailure(RemoveTodoFailure value),
-    TResult editFailure(EditTodoFailure value),
-    TResult toggleFailure(ToggleTodoFailure value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RetrieveTodoFailure value)? retrieveFailure,
+    TResult Function(AddTodoFailure value)? addFailure,
+    TResult Function(RemoveTodoFailure value)? removeFailure,
+    TResult Function(EditTodoFailure value)? editFailure,
+    TResult Function(ToggleTodoFailure value)? toggleFailure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
-  $TodoFailureCopyWith<TodoFailure> get copyWith;
+  @JsonKey(ignore: true)
+  $TodoFailureCopyWith<TodoFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -116,11 +119,13 @@ class _$TodoFailureCopyWithImpl<$Res> implements $TodoFailureCopyWith<$Res> {
 
   @override
   $Res call({
-    Object description = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      description:
-          description == freezed ? _value.description : description as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -148,19 +153,21 @@ class _$RetrieveTodoFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object description = freezed,
+    Object? description = freezed,
   }) {
     return _then(RetrieveTodoFailure(
-      description:
-          description == freezed ? _value.description : description as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$RetrieveTodoFailure implements RetrieveTodoFailure {
-  const _$RetrieveTodoFailure({this.description = 'Error retrieving todos'})
-      : assert(description != null);
+  const _$RetrieveTodoFailure({this.description = 'Error retrieving todos'});
 
   @JsonKey(defaultValue: 'Error retrieving todos')
   @override
@@ -184,38 +191,33 @@ class _$RetrieveTodoFailure implements RetrieveTodoFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(description);
 
+  @JsonKey(ignore: true)
   @override
   $RetrieveTodoFailureCopyWith<RetrieveTodoFailure> get copyWith =>
       _$RetrieveTodoFailureCopyWithImpl<RetrieveTodoFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult retrieveFailure(String description),
-    @required TResult addFailure(String description),
-    @required TResult removeFailure(String description),
-    @required TResult editFailure(String description),
-    @required TResult toggleFailure(String description),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String description) retrieveFailure,
+    required TResult Function(String description) addFailure,
+    required TResult Function(String description) removeFailure,
+    required TResult Function(String description) editFailure,
+    required TResult Function(String description) toggleFailure,
   }) {
-    assert(retrieveFailure != null);
-    assert(addFailure != null);
-    assert(removeFailure != null);
-    assert(editFailure != null);
-    assert(toggleFailure != null);
     return retrieveFailure(description);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult retrieveFailure(String description),
-    TResult addFailure(String description),
-    TResult removeFailure(String description),
-    TResult editFailure(String description),
-    TResult toggleFailure(String description),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String description)? retrieveFailure,
+    TResult Function(String description)? addFailure,
+    TResult Function(String description)? removeFailure,
+    TResult Function(String description)? editFailure,
+    TResult Function(String description)? toggleFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (retrieveFailure != null) {
       return retrieveFailure(description);
     }
@@ -224,32 +226,26 @@ class _$RetrieveTodoFailure implements RetrieveTodoFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult retrieveFailure(RetrieveTodoFailure value),
-    @required TResult addFailure(AddTodoFailure value),
-    @required TResult removeFailure(RemoveTodoFailure value),
-    @required TResult editFailure(EditTodoFailure value),
-    @required TResult toggleFailure(ToggleTodoFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(RetrieveTodoFailure value) retrieveFailure,
+    required TResult Function(AddTodoFailure value) addFailure,
+    required TResult Function(RemoveTodoFailure value) removeFailure,
+    required TResult Function(EditTodoFailure value) editFailure,
+    required TResult Function(ToggleTodoFailure value) toggleFailure,
   }) {
-    assert(retrieveFailure != null);
-    assert(addFailure != null);
-    assert(removeFailure != null);
-    assert(editFailure != null);
-    assert(toggleFailure != null);
     return retrieveFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult retrieveFailure(RetrieveTodoFailure value),
-    TResult addFailure(AddTodoFailure value),
-    TResult removeFailure(RemoveTodoFailure value),
-    TResult editFailure(EditTodoFailure value),
-    TResult toggleFailure(ToggleTodoFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RetrieveTodoFailure value)? retrieveFailure,
+    TResult Function(AddTodoFailure value)? addFailure,
+    TResult Function(RemoveTodoFailure value)? removeFailure,
+    TResult Function(EditTodoFailure value)? editFailure,
+    TResult Function(ToggleTodoFailure value)? toggleFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (retrieveFailure != null) {
       return retrieveFailure(this);
     }
@@ -262,9 +258,11 @@ abstract class RetrieveTodoFailure implements TodoFailure {
       _$RetrieveTodoFailure;
 
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  $RetrieveTodoFailureCopyWith<RetrieveTodoFailure> get copyWith;
+  @JsonKey(ignore: true)
+  $RetrieveTodoFailureCopyWith<RetrieveTodoFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -289,19 +287,21 @@ class _$AddTodoFailureCopyWithImpl<$Res> extends _$TodoFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object description = freezed,
+    Object? description = freezed,
   }) {
     return _then(AddTodoFailure(
-      description:
-          description == freezed ? _value.description : description as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$AddTodoFailure implements AddTodoFailure {
-  const _$AddTodoFailure({this.description = 'Error adding todo'})
-      : assert(description != null);
+  const _$AddTodoFailure({this.description = 'Error adding todo'});
 
   @JsonKey(defaultValue: 'Error adding todo')
   @override
@@ -325,38 +325,33 @@ class _$AddTodoFailure implements AddTodoFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(description);
 
+  @JsonKey(ignore: true)
   @override
   $AddTodoFailureCopyWith<AddTodoFailure> get copyWith =>
       _$AddTodoFailureCopyWithImpl<AddTodoFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult retrieveFailure(String description),
-    @required TResult addFailure(String description),
-    @required TResult removeFailure(String description),
-    @required TResult editFailure(String description),
-    @required TResult toggleFailure(String description),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String description) retrieveFailure,
+    required TResult Function(String description) addFailure,
+    required TResult Function(String description) removeFailure,
+    required TResult Function(String description) editFailure,
+    required TResult Function(String description) toggleFailure,
   }) {
-    assert(retrieveFailure != null);
-    assert(addFailure != null);
-    assert(removeFailure != null);
-    assert(editFailure != null);
-    assert(toggleFailure != null);
     return addFailure(description);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult retrieveFailure(String description),
-    TResult addFailure(String description),
-    TResult removeFailure(String description),
-    TResult editFailure(String description),
-    TResult toggleFailure(String description),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String description)? retrieveFailure,
+    TResult Function(String description)? addFailure,
+    TResult Function(String description)? removeFailure,
+    TResult Function(String description)? editFailure,
+    TResult Function(String description)? toggleFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (addFailure != null) {
       return addFailure(description);
     }
@@ -365,32 +360,26 @@ class _$AddTodoFailure implements AddTodoFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult retrieveFailure(RetrieveTodoFailure value),
-    @required TResult addFailure(AddTodoFailure value),
-    @required TResult removeFailure(RemoveTodoFailure value),
-    @required TResult editFailure(EditTodoFailure value),
-    @required TResult toggleFailure(ToggleTodoFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(RetrieveTodoFailure value) retrieveFailure,
+    required TResult Function(AddTodoFailure value) addFailure,
+    required TResult Function(RemoveTodoFailure value) removeFailure,
+    required TResult Function(EditTodoFailure value) editFailure,
+    required TResult Function(ToggleTodoFailure value) toggleFailure,
   }) {
-    assert(retrieveFailure != null);
-    assert(addFailure != null);
-    assert(removeFailure != null);
-    assert(editFailure != null);
-    assert(toggleFailure != null);
     return addFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult retrieveFailure(RetrieveTodoFailure value),
-    TResult addFailure(AddTodoFailure value),
-    TResult removeFailure(RemoveTodoFailure value),
-    TResult editFailure(EditTodoFailure value),
-    TResult toggleFailure(ToggleTodoFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RetrieveTodoFailure value)? retrieveFailure,
+    TResult Function(AddTodoFailure value)? addFailure,
+    TResult Function(RemoveTodoFailure value)? removeFailure,
+    TResult Function(EditTodoFailure value)? editFailure,
+    TResult Function(ToggleTodoFailure value)? toggleFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (addFailure != null) {
       return addFailure(this);
     }
@@ -402,9 +391,11 @@ abstract class AddTodoFailure implements TodoFailure {
   const factory AddTodoFailure({String description}) = _$AddTodoFailure;
 
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  $AddTodoFailureCopyWith<AddTodoFailure> get copyWith;
+  @JsonKey(ignore: true)
+  $AddTodoFailureCopyWith<AddTodoFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -430,19 +421,21 @@ class _$RemoveTodoFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object description = freezed,
+    Object? description = freezed,
   }) {
     return _then(RemoveTodoFailure(
-      description:
-          description == freezed ? _value.description : description as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$RemoveTodoFailure implements RemoveTodoFailure {
-  const _$RemoveTodoFailure({this.description = 'Error removing todo'})
-      : assert(description != null);
+  const _$RemoveTodoFailure({this.description = 'Error removing todo'});
 
   @JsonKey(defaultValue: 'Error removing todo')
   @override
@@ -466,38 +459,33 @@ class _$RemoveTodoFailure implements RemoveTodoFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(description);
 
+  @JsonKey(ignore: true)
   @override
   $RemoveTodoFailureCopyWith<RemoveTodoFailure> get copyWith =>
       _$RemoveTodoFailureCopyWithImpl<RemoveTodoFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult retrieveFailure(String description),
-    @required TResult addFailure(String description),
-    @required TResult removeFailure(String description),
-    @required TResult editFailure(String description),
-    @required TResult toggleFailure(String description),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String description) retrieveFailure,
+    required TResult Function(String description) addFailure,
+    required TResult Function(String description) removeFailure,
+    required TResult Function(String description) editFailure,
+    required TResult Function(String description) toggleFailure,
   }) {
-    assert(retrieveFailure != null);
-    assert(addFailure != null);
-    assert(removeFailure != null);
-    assert(editFailure != null);
-    assert(toggleFailure != null);
     return removeFailure(description);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult retrieveFailure(String description),
-    TResult addFailure(String description),
-    TResult removeFailure(String description),
-    TResult editFailure(String description),
-    TResult toggleFailure(String description),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String description)? retrieveFailure,
+    TResult Function(String description)? addFailure,
+    TResult Function(String description)? removeFailure,
+    TResult Function(String description)? editFailure,
+    TResult Function(String description)? toggleFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (removeFailure != null) {
       return removeFailure(description);
     }
@@ -506,32 +494,26 @@ class _$RemoveTodoFailure implements RemoveTodoFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult retrieveFailure(RetrieveTodoFailure value),
-    @required TResult addFailure(AddTodoFailure value),
-    @required TResult removeFailure(RemoveTodoFailure value),
-    @required TResult editFailure(EditTodoFailure value),
-    @required TResult toggleFailure(ToggleTodoFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(RetrieveTodoFailure value) retrieveFailure,
+    required TResult Function(AddTodoFailure value) addFailure,
+    required TResult Function(RemoveTodoFailure value) removeFailure,
+    required TResult Function(EditTodoFailure value) editFailure,
+    required TResult Function(ToggleTodoFailure value) toggleFailure,
   }) {
-    assert(retrieveFailure != null);
-    assert(addFailure != null);
-    assert(removeFailure != null);
-    assert(editFailure != null);
-    assert(toggleFailure != null);
     return removeFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult retrieveFailure(RetrieveTodoFailure value),
-    TResult addFailure(AddTodoFailure value),
-    TResult removeFailure(RemoveTodoFailure value),
-    TResult editFailure(EditTodoFailure value),
-    TResult toggleFailure(ToggleTodoFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RetrieveTodoFailure value)? retrieveFailure,
+    TResult Function(AddTodoFailure value)? addFailure,
+    TResult Function(RemoveTodoFailure value)? removeFailure,
+    TResult Function(EditTodoFailure value)? editFailure,
+    TResult Function(ToggleTodoFailure value)? toggleFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (removeFailure != null) {
       return removeFailure(this);
     }
@@ -543,9 +525,11 @@ abstract class RemoveTodoFailure implements TodoFailure {
   const factory RemoveTodoFailure({String description}) = _$RemoveTodoFailure;
 
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  $RemoveTodoFailureCopyWith<RemoveTodoFailure> get copyWith;
+  @JsonKey(ignore: true)
+  $RemoveTodoFailureCopyWith<RemoveTodoFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -571,19 +555,21 @@ class _$EditTodoFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object description = freezed,
+    Object? description = freezed,
   }) {
     return _then(EditTodoFailure(
-      description:
-          description == freezed ? _value.description : description as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$EditTodoFailure implements EditTodoFailure {
-  const _$EditTodoFailure({this.description = 'Error editing todo'})
-      : assert(description != null);
+  const _$EditTodoFailure({this.description = 'Error editing todo'});
 
   @JsonKey(defaultValue: 'Error editing todo')
   @override
@@ -607,38 +593,33 @@ class _$EditTodoFailure implements EditTodoFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(description);
 
+  @JsonKey(ignore: true)
   @override
   $EditTodoFailureCopyWith<EditTodoFailure> get copyWith =>
       _$EditTodoFailureCopyWithImpl<EditTodoFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult retrieveFailure(String description),
-    @required TResult addFailure(String description),
-    @required TResult removeFailure(String description),
-    @required TResult editFailure(String description),
-    @required TResult toggleFailure(String description),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String description) retrieveFailure,
+    required TResult Function(String description) addFailure,
+    required TResult Function(String description) removeFailure,
+    required TResult Function(String description) editFailure,
+    required TResult Function(String description) toggleFailure,
   }) {
-    assert(retrieveFailure != null);
-    assert(addFailure != null);
-    assert(removeFailure != null);
-    assert(editFailure != null);
-    assert(toggleFailure != null);
     return editFailure(description);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult retrieveFailure(String description),
-    TResult addFailure(String description),
-    TResult removeFailure(String description),
-    TResult editFailure(String description),
-    TResult toggleFailure(String description),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String description)? retrieveFailure,
+    TResult Function(String description)? addFailure,
+    TResult Function(String description)? removeFailure,
+    TResult Function(String description)? editFailure,
+    TResult Function(String description)? toggleFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (editFailure != null) {
       return editFailure(description);
     }
@@ -647,32 +628,26 @@ class _$EditTodoFailure implements EditTodoFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult retrieveFailure(RetrieveTodoFailure value),
-    @required TResult addFailure(AddTodoFailure value),
-    @required TResult removeFailure(RemoveTodoFailure value),
-    @required TResult editFailure(EditTodoFailure value),
-    @required TResult toggleFailure(ToggleTodoFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(RetrieveTodoFailure value) retrieveFailure,
+    required TResult Function(AddTodoFailure value) addFailure,
+    required TResult Function(RemoveTodoFailure value) removeFailure,
+    required TResult Function(EditTodoFailure value) editFailure,
+    required TResult Function(ToggleTodoFailure value) toggleFailure,
   }) {
-    assert(retrieveFailure != null);
-    assert(addFailure != null);
-    assert(removeFailure != null);
-    assert(editFailure != null);
-    assert(toggleFailure != null);
     return editFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult retrieveFailure(RetrieveTodoFailure value),
-    TResult addFailure(AddTodoFailure value),
-    TResult removeFailure(RemoveTodoFailure value),
-    TResult editFailure(EditTodoFailure value),
-    TResult toggleFailure(ToggleTodoFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RetrieveTodoFailure value)? retrieveFailure,
+    TResult Function(AddTodoFailure value)? addFailure,
+    TResult Function(RemoveTodoFailure value)? removeFailure,
+    TResult Function(EditTodoFailure value)? editFailure,
+    TResult Function(ToggleTodoFailure value)? toggleFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (editFailure != null) {
       return editFailure(this);
     }
@@ -684,9 +659,11 @@ abstract class EditTodoFailure implements TodoFailure {
   const factory EditTodoFailure({String description}) = _$EditTodoFailure;
 
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  $EditTodoFailureCopyWith<EditTodoFailure> get copyWith;
+  @JsonKey(ignore: true)
+  $EditTodoFailureCopyWith<EditTodoFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -712,19 +689,21 @@ class _$ToggleTodoFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object description = freezed,
+    Object? description = freezed,
   }) {
     return _then(ToggleTodoFailure(
-      description:
-          description == freezed ? _value.description : description as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$ToggleTodoFailure implements ToggleTodoFailure {
-  const _$ToggleTodoFailure({this.description = 'Error toggling todo'})
-      : assert(description != null);
+  const _$ToggleTodoFailure({this.description = 'Error toggling todo'});
 
   @JsonKey(defaultValue: 'Error toggling todo')
   @override
@@ -748,38 +727,33 @@ class _$ToggleTodoFailure implements ToggleTodoFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(description);
 
+  @JsonKey(ignore: true)
   @override
   $ToggleTodoFailureCopyWith<ToggleTodoFailure> get copyWith =>
       _$ToggleTodoFailureCopyWithImpl<ToggleTodoFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult retrieveFailure(String description),
-    @required TResult addFailure(String description),
-    @required TResult removeFailure(String description),
-    @required TResult editFailure(String description),
-    @required TResult toggleFailure(String description),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String description) retrieveFailure,
+    required TResult Function(String description) addFailure,
+    required TResult Function(String description) removeFailure,
+    required TResult Function(String description) editFailure,
+    required TResult Function(String description) toggleFailure,
   }) {
-    assert(retrieveFailure != null);
-    assert(addFailure != null);
-    assert(removeFailure != null);
-    assert(editFailure != null);
-    assert(toggleFailure != null);
     return toggleFailure(description);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult retrieveFailure(String description),
-    TResult addFailure(String description),
-    TResult removeFailure(String description),
-    TResult editFailure(String description),
-    TResult toggleFailure(String description),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String description)? retrieveFailure,
+    TResult Function(String description)? addFailure,
+    TResult Function(String description)? removeFailure,
+    TResult Function(String description)? editFailure,
+    TResult Function(String description)? toggleFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (toggleFailure != null) {
       return toggleFailure(description);
     }
@@ -788,32 +762,26 @@ class _$ToggleTodoFailure implements ToggleTodoFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult retrieveFailure(RetrieveTodoFailure value),
-    @required TResult addFailure(AddTodoFailure value),
-    @required TResult removeFailure(RemoveTodoFailure value),
-    @required TResult editFailure(EditTodoFailure value),
-    @required TResult toggleFailure(ToggleTodoFailure value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(RetrieveTodoFailure value) retrieveFailure,
+    required TResult Function(AddTodoFailure value) addFailure,
+    required TResult Function(RemoveTodoFailure value) removeFailure,
+    required TResult Function(EditTodoFailure value) editFailure,
+    required TResult Function(ToggleTodoFailure value) toggleFailure,
   }) {
-    assert(retrieveFailure != null);
-    assert(addFailure != null);
-    assert(removeFailure != null);
-    assert(editFailure != null);
-    assert(toggleFailure != null);
     return toggleFailure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult retrieveFailure(RetrieveTodoFailure value),
-    TResult addFailure(AddTodoFailure value),
-    TResult removeFailure(RemoveTodoFailure value),
-    TResult editFailure(EditTodoFailure value),
-    TResult toggleFailure(ToggleTodoFailure value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RetrieveTodoFailure value)? retrieveFailure,
+    TResult Function(AddTodoFailure value)? addFailure,
+    TResult Function(RemoveTodoFailure value)? removeFailure,
+    TResult Function(EditTodoFailure value)? editFailure,
+    TResult Function(ToggleTodoFailure value)? toggleFailure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (toggleFailure != null) {
       return toggleFailure(this);
     }
@@ -825,7 +793,9 @@ abstract class ToggleTodoFailure implements TodoFailure {
   const factory ToggleTodoFailure({String description}) = _$ToggleTodoFailure;
 
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  $ToggleTodoFailureCopyWith<ToggleTodoFailure> get copyWith;
+  @JsonKey(ignore: true)
+  $ToggleTodoFailureCopyWith<ToggleTodoFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }

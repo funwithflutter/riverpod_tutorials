@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:meta/meta.dart';
 import 'package:riverpod_004_freezed/repositories/todo_repository.dart';
 
 import 'models/models.dart';
@@ -13,12 +12,13 @@ final todoRepositoryProvider = Provider<TodoRepository>((ref) {
   throw UnimplementedError();
 });
 
-final todosNotifierProvider = StateNotifierProvider<TodosNotifier>((ref) {
+final todosNotifierProvider =
+    StateNotifierProvider<TodosNotifier, Todos>((ref) {
   return TodosNotifier(ref.read);
 });
 
 final completedTodosProvider = Provider<Todos>((ref) {
-  final todosState = ref.watch(todosNotifierProvider.state);
+  final todosState = ref.watch(todosNotifierProvider);
   return todosState.when(
     data: (todos) => Todos.data(todos.where((todo) => todo.completed).toList()),
     loading: () => const Todos.loading(),
@@ -26,20 +26,20 @@ final completedTodosProvider = Provider<Todos>((ref) {
   );
 });
 
-final todoExceptionProvider = StateProvider<TodoException>((ref) {
+final todoExceptionProvider = StateProvider<TodoException?>((ref) {
   return null;
 });
 
 class TodosNotifier extends StateNotifier<Todos> {
   TodosNotifier(
     this.read, [
-    Todos todos,
+    Todos? todos,
   ]) : super(todos ?? const Todos.loading()) {
     _retrieveTodos();
   }
 
   final Reader read;
-  Todos previousState;
+  Todos? previousState;
 
   Future<void> _retrieveTodos() async {
     try {
@@ -73,7 +73,7 @@ class TodosNotifier extends StateNotifier<Todos> {
     _cacheState();
     state.maybeWhen(
       data: (todos) {
-        state = Todos.data(todos..add(Todo.create(description)));
+        state = Todos.data([...todos, Todo.create(description)]);
       },
       orElse: () {},
     );
@@ -94,12 +94,15 @@ class TodosNotifier extends StateNotifier<Todos> {
 
     state.maybeWhen(
       data: (todos) {
-        state = Todos.data(todos.map((todo) {
-          if (todo.id == id)
-            return todo.copyWith(completed: !todo.completed);
-          else
-            return todo;
-        }).toList());
+        state = Todos.data(todos.map(
+          (todo) {
+            if (todo.id == id) {
+              return todo.copyWith(completed: !todo.completed);
+            } else {
+              return todo;
+            }
+          },
+        ).toList());
       },
       orElse: () {},
     );
@@ -110,7 +113,7 @@ class TodosNotifier extends StateNotifier<Todos> {
     }
   }
 
-  Future<void> edit({@required String id, @required String description}) async {
+  Future<void> edit({required String id, required String description}) async {
     _cacheState();
 
     state.maybeWhen(
@@ -151,7 +154,7 @@ class TodosNotifier extends StateNotifier<Todos> {
 
   void _resetState() {
     if (previousState != null) {
-      state = previousState;
+      state = previousState!;
       previousState = null;
     }
   }

@@ -4,13 +4,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'todo.freezed.dart';
 part 'todo.g.dart';
 
-var _uuid = Uuid();
+var _uuid = const Uuid();
 
 @freezed
-abstract class Todo with _$Todo {
+class Todo with _$Todo {
   const factory Todo({
-    @required String description,
-    @required String id,
+    required String description,
+    required String id,
     @Default(false) bool completed,
   }) = _Todo;
 
@@ -25,7 +25,7 @@ abstract class Todo with _$Todo {
 }
 
 @freezed
-abstract class Todos with _$Todos {
+class Todos with _$Todos {
   const factory Todos.data(
     List<Todo> todos,
   ) = TodosData;

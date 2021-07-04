@@ -2,6 +2,9 @@
 android/
 ios/
 web/
+macos/
+windows/
+linux/
 
 # Miscellaneous
 *.class

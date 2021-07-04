@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final _counterProvider = StateProvider<int>((ref) => 0);
 
@@ -9,17 +9,18 @@ final _isEvenProvider = Provider<bool>((ref) {
 });
 
 class CounterStateProviderPage extends ConsumerWidget {
-  const CounterStateProviderPage({Key key}) : super(key: key);
+  const CounterStateProviderPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final counter = watch(_counterProvider).state;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final counter = ref.watch(_counterProvider).state;
     return Scaffold(
       appBar: AppBar(
         title: Text('Counter Provider Page'),
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Count: $counter'),
             CounterIsEven(),
@@ -27,7 +28,7 @@ class CounterStateProviderPage extends ConsumerWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.read(_counterProvider).state++,
+        onPressed: () => ref.read(_counterProvider).state++,
         child: Icon(Icons.add),
       ),
     );
@@ -35,11 +36,11 @@ class CounterStateProviderPage extends ConsumerWidget {
 }
 
 class CounterIsEven extends ConsumerWidget {
-  const CounterIsEven({Key key}) : super(key: key);
+  const CounterIsEven({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final isEven = watch(_isEvenProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isEven = ref.watch(_isEvenProvider);
     return Text(isEven ? 'Is even' : 'Not even');
   }
 }

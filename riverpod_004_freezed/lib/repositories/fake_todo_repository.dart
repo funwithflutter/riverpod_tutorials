@@ -6,9 +6,9 @@ import 'exceptions.dart';
 import 'todo_repository.dart';
 
 final _sampleJsonTodos = [
-  '{"description": "Buy cat food", "id": "ef902705-b65e-49bf-b723-cdcb4bfa7327", "completed": false}',
-  '{"description": "Learn Riverpod", "id": "ef902705-b65e-49bf-b723-cdcb4bfa7329", "completed": true}',
-  '{"description": "Play games", "id": "0704c57a-6901-40db-88dc-b22269af658b", "completed": false}',
+  '''{"description": "Buy cat food", "id": "ef902705-b65e-49bf-b723-cdcb4bfa7327", "completed": false}''',
+  '''{"description": "Learn Riverpod", "id": "ef902705-b65e-49bf-b723-cdcb4bfa7329", "completed": true}''',
+  '''{"description": "Play games", "id": "0704c57a-6901-40db-88dc-b22269af658b", "completed": false}''',
 ];
 
 const double errorLikelihood = 0.00;
@@ -22,15 +22,15 @@ class FakeTodoRepository implements TodoRepository {
     ];
   }
 
-  List<Todo> mockTodoStorage;
-  final Random random;
+  late List<Todo> mockTodoStorage;
+  late final Random random;
 
   @override
   Future<List<Todo>> retrieveTodos() async {
     await _waitRandomTime();
     // retrieving mock storage
     if (random.nextDouble() < 0.3) {
-      throw TodoException(failure: const TodoFailure.retrieveFailure());
+      throw const TodoException(failure: TodoFailure.retrieveFailure());
     } else {
       return mockTodoStorage;
     }
@@ -41,9 +41,9 @@ class FakeTodoRepository implements TodoRepository {
     await _waitRandomTime();
     // updating mock storage
     if (random.nextDouble() < errorLikelihood) {
-      throw TodoException(failure: const TodoFailure.addFailure());
+      throw const TodoException(failure: TodoFailure.addFailure());
     } else {
-      mockTodoStorage = [...mockTodoStorage]..add(Todo.create(description));
+      mockTodoStorage = [...mockTodoStorage, Todo.create(description)];
     }
   }
 
@@ -52,7 +52,7 @@ class FakeTodoRepository implements TodoRepository {
     await _waitRandomTime();
     // updating mock storage
     if (random.nextDouble() < errorLikelihood) {
-      throw TodoException(failure: const TodoFailure.removeFailure());
+      throw const TodoException(failure: TodoFailure.removeFailure());
     } else {
       mockTodoStorage =
           mockTodoStorage.where((element) => element.id != id).toList();
@@ -60,11 +60,11 @@ class FakeTodoRepository implements TodoRepository {
   }
 
   @override
-  Future<void> edit({String id, String description}) async {
+  Future<void> edit({required String id, required String description}) async {
     await _waitRandomTime();
     // updating mock storage
     if (random.nextDouble() < errorLikelihood) {
-      throw TodoException(failure: const TodoFailure.editFailure());
+      throw const TodoException(failure: TodoFailure.editFailure());
     } else {
       mockTodoStorage = [
         for (final todo in mockTodoStorage)
@@ -85,7 +85,7 @@ class FakeTodoRepository implements TodoRepository {
     await _waitRandomTime();
     // updating mock storage
     if (random.nextDouble() < errorLikelihood) {
-      throw TodoException(failure: const TodoFailure.toggleFailure());
+      throw const TodoException(failure: TodoFailure.toggleFailure());
     } else {
       mockTodoStorage = mockTodoStorage.map((todo) {
         if (todo.id == id) {

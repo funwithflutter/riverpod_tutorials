@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_counter_app_three_ways/pages/counter_change_notifier_page.dart';
 import 'package:riverpod_counter_app_three_ways/pages/counter_state_notifier_page.dart';
 import 'package:riverpod_counter_app_three_ways/pages/counter_state_provider_page.dart';
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
-  const Home({Key key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,19 +39,19 @@ class Home extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, changeNotifierRoute);
               },
               child: Text('Change Notifier'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, stateNotifierRoute);
               },
               child: Text('State Notifier'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, stateProviderRoute);
               },

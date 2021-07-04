@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'todo.dart';
 
@@ -8,6 +8,10 @@ part of 'todo.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 Todo _$TodoFromJson(Map<String, dynamic> json) {
   return _Todo.fromJson(json);
 }
@@ -16,10 +20,9 @@ Todo _$TodoFromJson(Map<String, dynamic> json) {
 class _$TodoTearOff {
   const _$TodoTearOff();
 
-// ignore: unused_element
   _Todo call(
-      {@required String description,
-      @required String id,
+      {required String description,
+      required String id,
       bool completed = false}) {
     return _Todo(
       description: description,
@@ -28,24 +31,23 @@ class _$TodoTearOff {
     );
   }
 
-// ignore: unused_element
   Todo fromJson(Map<String, Object> json) {
     return Todo.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Todo = _$TodoTearOff();
 
 /// @nodoc
 mixin _$Todo {
-  String get description;
-  String get id;
-  bool get completed;
+  String get description => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  bool get completed => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $TodoCopyWith<Todo> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -65,15 +67,23 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object description = freezed,
-    Object id = freezed,
-    Object completed = freezed,
+    Object? description = freezed,
+    Object? id = freezed,
+    Object? completed = freezed,
   }) {
     return _then(_value.copyWith(
-      description:
-          description == freezed ? _value.description : description as String,
-      id: id == freezed ? _value.id : id as String,
-      completed: completed == freezed ? _value.completed : completed as bool,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      completed: completed == freezed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -97,28 +107,32 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object description = freezed,
-    Object id = freezed,
-    Object completed = freezed,
+    Object? description = freezed,
+    Object? id = freezed,
+    Object? completed = freezed,
   }) {
     return _then(_Todo(
-      description:
-          description == freezed ? _value.description : description as String,
-      id: id == freezed ? _value.id : id as String,
-      completed: completed == freezed ? _value.completed : completed as bool,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      completed: completed == freezed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_Todo implements _Todo {
   const _$_Todo(
-      {@required this.description, @required this.id, this.completed = false})
-      : assert(description != null),
-        assert(id != null),
-        assert(completed != null);
+      {required this.description, required this.id, this.completed = false});
 
   factory _$_Todo.fromJson(Map<String, dynamic> json) =>
       _$_$_TodoFromJson(json);
@@ -157,6 +171,7 @@ class _$_Todo implements _Todo {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(completed);
 
+  @JsonKey(ignore: true)
   @override
   _$TodoCopyWith<_Todo> get copyWith =>
       __$TodoCopyWithImpl<_Todo>(this, _$identity);
@@ -169,39 +184,37 @@ class _$_Todo implements _Todo {
 
 abstract class _Todo implements Todo {
   const factory _Todo(
-      {@required String description,
-      @required String id,
+      {required String description,
+      required String id,
       bool completed}) = _$_Todo;
 
   factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
 
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  bool get completed;
+  bool get completed => throw _privateConstructorUsedError;
   @override
-  _$TodoCopyWith<_Todo> get copyWith;
+  @JsonKey(ignore: true)
+  _$TodoCopyWith<_Todo> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$TodosTearOff {
   const _$TodosTearOff();
 
-// ignore: unused_element
   TodosData data(List<Todo> todos) {
     return TodosData(
       todos,
     );
   }
 
-// ignore: unused_element
   TodosLoading loading() {
     return const TodosLoading();
   }
 
-// ignore: unused_element
   TodosError error(Object error, StackTrace st) {
     return TodosError(
       error,
@@ -211,37 +224,40 @@ class _$TodosTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Todos = _$TodosTearOff();
 
 /// @nodoc
 mixin _$Todos {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult data(List<Todo> todos),
-    @required TResult loading(),
-    @required TResult error(Object error, StackTrace st),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Todo> todos) data,
+    required TResult Function() loading,
+    required TResult Function(Object error, StackTrace st) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult data(List<Todo> todos),
-    TResult loading(),
-    TResult error(Object error, StackTrace st),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Todo> todos)? data,
+    TResult Function()? loading,
+    TResult Function(Object error, StackTrace st)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult data(TodosData value),
-    @required TResult loading(TodosLoading value),
-    @required TResult error(TodosError value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(TodosData value) data,
+    required TResult Function(TodosLoading value) loading,
+    required TResult Function(TodosError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult data(TodosData value),
-    TResult loading(TodosLoading value),
-    TResult error(TodosError value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TodosData value)? data,
+    TResult Function(TodosLoading value)? loading,
+    TResult Function(TodosError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -277,17 +293,21 @@ class _$TodosDataCopyWithImpl<$Res> extends _$TodosCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object todos = freezed,
+    Object? todos = freezed,
   }) {
     return _then(TodosData(
-      todos == freezed ? _value.todos : todos as List<Todo>,
+      todos == freezed
+          ? _value.todos
+          : todos // ignore: cast_nullable_to_non_nullable
+              as List<Todo>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$TodosData implements TodosData {
-  const _$TodosData(this.todos) : assert(todos != null);
+  const _$TodosData(this.todos);
 
   @override
   final List<Todo> todos;
@@ -309,32 +329,29 @@ class _$TodosData implements TodosData {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(todos);
 
+  @JsonKey(ignore: true)
   @override
   $TodosDataCopyWith<TodosData> get copyWith =>
       _$TodosDataCopyWithImpl<TodosData>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult data(List<Todo> todos),
-    @required TResult loading(),
-    @required TResult error(Object error, StackTrace st),
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Todo> todos) data,
+    required TResult Function() loading,
+    required TResult Function(Object error, StackTrace st) error,
   }) {
-    assert(data != null);
-    assert(loading != null);
-    assert(error != null);
     return data(todos);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult data(List<Todo> todos),
-    TResult loading(),
-    TResult error(Object error, StackTrace st),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Todo> todos)? data,
+    TResult Function()? loading,
+    TResult Function(Object error, StackTrace st)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (data != null) {
       return data(todos);
     }
@@ -343,26 +360,22 @@ class _$TodosData implements TodosData {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult data(TodosData value),
-    @required TResult loading(TodosLoading value),
-    @required TResult error(TodosError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(TodosData value) data,
+    required TResult Function(TodosLoading value) loading,
+    required TResult Function(TodosError value) error,
   }) {
-    assert(data != null);
-    assert(loading != null);
-    assert(error != null);
     return data(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult data(TodosData value),
-    TResult loading(TodosLoading value),
-    TResult error(TodosError value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TodosData value)? data,
+    TResult Function(TodosLoading value)? loading,
+    TResult Function(TodosError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (data != null) {
       return data(this);
     }
@@ -373,8 +386,10 @@ class _$TodosData implements TodosData {
 abstract class TodosData implements Todos {
   const factory TodosData(List<Todo> todos) = _$TodosData;
 
-  List<Todo> get todos;
-  $TodosDataCopyWith<TodosData> get copyWith;
+  List<Todo> get todos => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TodosDataCopyWith<TodosData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -396,6 +411,7 @@ class _$TodosLoadingCopyWithImpl<$Res> extends _$TodosCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$TodosLoading implements TodosLoading {
   const _$TodosLoading();
 
@@ -414,26 +430,22 @@ class _$TodosLoading implements TodosLoading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult data(List<Todo> todos),
-    @required TResult loading(),
-    @required TResult error(Object error, StackTrace st),
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Todo> todos) data,
+    required TResult Function() loading,
+    required TResult Function(Object error, StackTrace st) error,
   }) {
-    assert(data != null);
-    assert(loading != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult data(List<Todo> todos),
-    TResult loading(),
-    TResult error(Object error, StackTrace st),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Todo> todos)? data,
+    TResult Function()? loading,
+    TResult Function(Object error, StackTrace st)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -442,26 +454,22 @@ class _$TodosLoading implements TodosLoading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult data(TodosData value),
-    @required TResult loading(TodosLoading value),
-    @required TResult error(TodosError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(TodosData value) data,
+    required TResult Function(TodosLoading value) loading,
+    required TResult Function(TodosError value) error,
   }) {
-    assert(data != null);
-    assert(loading != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult data(TodosData value),
-    TResult loading(TodosLoading value),
-    TResult error(TodosError value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TodosData value)? data,
+    TResult Function(TodosLoading value)? loading,
+    TResult Function(TodosError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -492,21 +500,26 @@ class _$TodosErrorCopyWithImpl<$Res> extends _$TodosCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
-    Object st = freezed,
+    Object? error = freezed,
+    Object? st = freezed,
   }) {
     return _then(TodosError(
-      error == freezed ? _value.error : error,
-      st == freezed ? _value.st : st as StackTrace,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
+      st == freezed
+          ? _value.st
+          : st // ignore: cast_nullable_to_non_nullable
+              as StackTrace,
     ));
   }
 }
 
 /// @nodoc
+
 class _$TodosError implements TodosError {
-  const _$TodosError(this.error, this.st)
-      : assert(error != null),
-        assert(st != null);
+  const _$TodosError(this.error, this.st);
 
   @override
   final Object error;
@@ -534,32 +547,29 @@ class _$TodosError implements TodosError {
       const DeepCollectionEquality().hash(error) ^
       const DeepCollectionEquality().hash(st);
 
+  @JsonKey(ignore: true)
   @override
   $TodosErrorCopyWith<TodosError> get copyWith =>
       _$TodosErrorCopyWithImpl<TodosError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult data(List<Todo> todos),
-    @required TResult loading(),
-    @required TResult error(Object error, StackTrace st),
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Todo> todos) data,
+    required TResult Function() loading,
+    required TResult Function(Object error, StackTrace st) error,
   }) {
-    assert(data != null);
-    assert(loading != null);
-    assert(error != null);
     return error(this.error, st);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult data(List<Todo> todos),
-    TResult loading(),
-    TResult error(Object error, StackTrace st),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Todo> todos)? data,
+    TResult Function()? loading,
+    TResult Function(Object error, StackTrace st)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error, st);
     }
@@ -568,26 +578,22 @@ class _$TodosError implements TodosError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult data(TodosData value),
-    @required TResult loading(TodosLoading value),
-    @required TResult error(TodosError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(TodosData value) data,
+    required TResult Function(TodosLoading value) loading,
+    required TResult Function(TodosError value) error,
   }) {
-    assert(data != null);
-    assert(loading != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult data(TodosData value),
-    TResult loading(TodosLoading value),
-    TResult error(TodosError value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TodosData value)? data,
+    TResult Function(TodosLoading value)? loading,
+    TResult Function(TodosError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -598,7 +604,9 @@ class _$TodosError implements TodosError {
 abstract class TodosError implements Todos {
   const factory TodosError(Object error, StackTrace st) = _$TodosError;
 
-  Object get error;
-  StackTrace get st;
-  $TodosErrorCopyWith<TodosError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  StackTrace get st => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TodosErrorCopyWith<TodosError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

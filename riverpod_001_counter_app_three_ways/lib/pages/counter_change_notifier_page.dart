@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../notifiers.dart';
 
@@ -9,11 +9,11 @@ final _counterProvider = ChangeNotifierProvider<CounterChangeNotifier>((ref) {
 });
 
 class CounterChangeNotifierPage extends ConsumerWidget {
-  const CounterChangeNotifierPage({Key key}) : super(key: key);
+  const CounterChangeNotifierPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final counter = watch(_counterProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final counter = ref.watch(_counterProvider);
     return Scaffold(
       appBar: AppBar(
         title: Text('Change Notifier Page'),
@@ -24,16 +24,16 @@ class CounterChangeNotifierPage extends ConsumerWidget {
   }
 }
 
-class MyFloatingButton extends StatelessWidget {
+class MyFloatingButton extends ConsumerWidget {
   const MyFloatingButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return FloatingActionButton(
       onPressed: () {
-        context.read(_counterProvider).increment();
+        ref.read(_counterProvider).increment();
       },
       child: Icon(Icons.add),
     );

@@ -5,9 +5,11 @@ import 'package:riverpod_003_async_value/todo_state.dart';
 
 import 'models/models.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Reading Providers',
         home: GestureDetector(
-          onTap: () => FocusManager.instance.primaryFocus.unfocus(),
+          onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
           child: const TodoScreen(),
         ),
       ),
@@ -26,11 +28,23 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class TodoScreen extends StatelessWidget {
-  const TodoScreen({Key key}) : super(key: key);
+class TodoScreen extends ConsumerWidget {
+  const TodoScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(
+      todoExceptionProvider,
+      (StateController<TodoException?> exceptionState) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              exceptionState.state!.error.toString(),
+            ),
+          ),
+        );
+      },
+    );
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -39,11 +53,11 @@ class TodoScreen extends StatelessWidget {
             'TODOS',
             style: Theme.of(context)
                 .textTheme
-                .headline3
+                .headline3!
                 .copyWith(color: Colors.white),
           ),
-          actions: [
-            const _Menu(),
+          actions: const [
+            _Menu(),
           ],
           bottom: const TabBar(
             tabs: [
@@ -60,35 +74,20 @@ class TodoScreen extends StatelessWidget {
             ],
           ),
         ),
-        body: ProviderListener(
-          provider: todoExceptionProvider,
-          onChange: (
-            BuildContext context,
-            StateController<TodoException> exceptionState,
-          ) {
-            Scaffold.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  exceptionState.state.error.toString(),
-                ),
+        body: SafeArea(
+          child: TabBarView(
+            children: [
+              Column(
+                children: const [
+                  AddTodoPanel(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  _TodoList(),
+                ],
               ),
-            );
-          },
-          child: SafeArea(
-            child: TabBarView(
-              children: [
-                Column(
-                  children: [
-                    const AddTodoPanel(),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const _TodoList(),
-                  ],
-                ),
-                const _CompletedTodos(),
-              ],
-            ),
+              const _CompletedTodos(),
+            ],
           ),
         ),
       ),
@@ -97,7 +96,7 @@ class TodoScreen extends StatelessWidget {
 }
 
 class _TodoList extends StatefulWidget {
-  const _TodoList({Key key}) : super(key: key);
+  const _TodoList({Key? key}) : super(key: key);
 
   @override
   __TodoListState createState() => __TodoListState();
@@ -108,13 +107,13 @@ class __TodoListState extends State<_TodoList> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Consumer(
-        builder: (context, watch, child) {
-          final todosState = watch(todosNotifierProvider.state);
+        builder: (context, ref, child) {
+          final todosState = ref.watch(todosNotifierProvider);
           return todosState.when(
             data: (todos) {
               return RefreshIndicator(
                 onRefresh: () {
-                  return context.read(todosNotifierProvider).refresh();
+                  return ref.read(todosNotifierProvider.notifier).refresh();
                 },
                 child: ListView(
                   children: [
@@ -138,9 +137,11 @@ class __TodoListState extends State<_TodoList> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text('Todos could not be loaded'),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () {
-                      context.read(todosNotifierProvider).retryLoadingTodo();
+                      ref
+                          .read(todosNotifierProvider.notifier)
+                          .retryLoadingTodo();
                     },
                     child: const Text('Retry'),
                   )
@@ -154,55 +155,53 @@ class __TodoListState extends State<_TodoList> {
   }
 }
 
-class _CompletedTodos extends StatelessWidget {
-  const _CompletedTodos({Key key}) : super(key: key);
+class _CompletedTodos extends ConsumerWidget {
+  const _CompletedTodos({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Consumer(
-      builder: (context, watch, child) {
-        final todosState = watch(completedTodosProvider);
-        return todosState.when(
-          data: (todos) {
-            return ListView(
-              children: [
-                ...todos
-                    .map(
-                      (todo) => ProviderScope(
-                        overrides: [_currentTodo.overrideWithValue(todo)],
-                        child: const TodoItem(),
-                      ),
-                    )
-                    .toList()
-              ],
-            );
-          },
-          loading: () => const Center(
-            child: CircularProgressIndicator(),
-          ),
-          error: (e, st) => const Center(
-            child: Text('Something went wrong'),
-          ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final todosState = ref.watch(completedTodosProvider);
+    return todosState.when(
+      data: (todos) {
+        return ListView(
+          children: [
+            ...todos
+                .map(
+                  (todo) => ProviderScope(
+                    overrides: [_currentTodo.overrideWithValue(todo)],
+                    child: const TodoItem(),
+                  ),
+                )
+                .toList()
+          ],
         );
       },
+      loading: () => const Center(
+        child: CircularProgressIndicator(),
+      ),
+      error: (e, st) => const Center(
+        child: Text('Something went wrong'),
+      ),
     );
   }
 }
 
-final _currentTodo = ScopedProvider<Todo>(null);
+final _currentTodo = Provider<Todo>((ref) {
+  throw UnimplementedError();
+});
 
-class TodoItem extends StatefulWidget {
+class TodoItem extends ConsumerStatefulWidget {
   const TodoItem({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   _TodoItemState createState() => _TodoItemState();
 }
 
-class _TodoItemState extends State<TodoItem> {
-  TextEditingController _textEditingController;
-  FocusNode _textFocusNode;
+class _TodoItemState extends ConsumerState<TodoItem> {
+  late TextEditingController _textEditingController;
+  late FocusNode _textFocusNode;
 
   bool hasFocus = false;
 
@@ -222,69 +221,65 @@ class _TodoItemState extends State<TodoItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(
-      builder: (context, watch, select) {
-        final todo = watch(_currentTodo);
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Dismissible(
-            key: UniqueKey(),
-            background: Container(color: Colors.red),
-            onDismissed: (_) {
-              context.read(todosNotifierProvider).remove(todo.id);
+    final todo = ref.watch(_currentTodo);
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Dismissible(
+        key: UniqueKey(),
+        background: Container(color: Colors.red),
+        onDismissed: (_) {
+          ref.read(todosNotifierProvider.notifier).remove(todo.id);
+        },
+        child: FocusScope(
+          child: Focus(
+            onFocusChange: (isFocused) {
+              if (!isFocused) {
+                setState(() {
+                  hasFocus = false;
+                });
+                ref.read(todosNotifierProvider.notifier).edit(
+                    id: todo.id, description: _textEditingController.text);
+              } else {
+                _textEditingController
+                  ..text = todo.description
+                  ..selection = TextSelection.fromPosition(
+                      TextPosition(offset: _textEditingController.text.length));
+              }
             },
-            child: FocusScope(
-              child: Focus(
-                onFocusChange: (isFocused) {
-                  if (!isFocused) {
-                    setState(() {
-                      hasFocus = false;
-                    });
-                    context.read(todosNotifierProvider).edit(
-                        id: todo.id, description: _textEditingController.text);
-                  } else {
-                    _textEditingController
-                      ..text = todo.description
-                      ..selection = TextSelection.fromPosition(TextPosition(
-                          offset: _textEditingController.text.length));
-                  }
-                },
-                child: ListTile(
-                  onTap: () {
-                    setState(() {
-                      hasFocus = true;
-                    });
-                    _textFocusNode.requestFocus();
-                  },
-                  title: hasFocus
-                      ? TextField(
-                          focusNode: _textFocusNode,
-                          controller: _textEditingController,
-                        )
-                      : Text(todo.description),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Checkbox(
-                        value: todo.completed,
-                        onChanged: (_) {
-                          context.read(todosNotifierProvider).toggle(todo.id);
-                        },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.delete),
-                        onPressed: () {
-                          context.read(todosNotifierProvider).remove(todo.id);
-                        },
-                      ),
-                    ],
+            child: ListTile(
+              onTap: () {
+                setState(() {
+                  hasFocus = true;
+                });
+                _textFocusNode.requestFocus();
+              },
+              title: hasFocus
+                  ? TextField(
+                      focusNode: _textFocusNode,
+                      controller: _textEditingController,
+                    )
+                  : Text(todo.description),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Checkbox(
+                    value: todo.completed,
+                    onChanged: (_) {
+                      ref.read(todosNotifierProvider.notifier).toggle(todo.id);
+                    },
                   ),
-                ),
+                  IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: () {
+                      ref.read(todosNotifierProvider.notifier).remove(todo.id);
+                    },
+                  ),
+                ],
               ),
             ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }
@@ -292,23 +287,22 @@ class _TodoItemState extends State<TodoItem> {
 enum _MenuOptions { deleteOnComplete }
 
 class _Menu extends ConsumerWidget {
-  const _Menu({Key key}) : super(key: key);
+  const _Menu({Key? key}) : super(key: key);
 
-  Future<void> onSelected(BuildContext context, _MenuOptions result) async {
+  Future<void> onSelected(WidgetRef ref, _MenuOptions result) async {
     if (result == _MenuOptions.deleteOnComplete) {
-      final currentSetting =
-          context.read(settingsProvider).state.deleteOnComplete;
-      context.read(settingsProvider).state =
+      final currentSetting = ref.read(settingsProvider).state.deleteOnComplete;
+      ref.read(settingsProvider).state =
           Settings(deleteOnComplete: !currentSetting);
     }
   }
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final isChecked = watch(settingsProvider).state.deleteOnComplete;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isChecked = ref.watch(settingsProvider).state.deleteOnComplete;
     return PopupMenuButton<_MenuOptions>(
       onSelected: (result) {
-        onSelected(context, result);
+        onSelected(ref, result);
       },
       icon: const Icon(
         Icons.menu,
@@ -332,18 +326,20 @@ class _Menu extends ConsumerWidget {
   }
 }
 
-class AddTodoPanel extends StatefulWidget {
-  const AddTodoPanel({Key key}) : super(key: key);
+class AddTodoPanel extends ConsumerStatefulWidget {
+  const AddTodoPanel({Key? key}) : super(key: key);
 
   @override
   _AddTodoPanelState createState() => _AddTodoPanelState();
 }
 
-class _AddTodoPanelState extends State<AddTodoPanel> {
+class _AddTodoPanelState extends ConsumerState<AddTodoPanel> {
   final _textEditingController = TextEditingController();
 
-  void _submit([String value]) {
-    context.read(todosNotifierProvider).add(_textEditingController.value.text);
+  void _submit([String? value]) {
+    ref
+        .read(todosNotifierProvider.notifier)
+        .add(_textEditingController.value.text);
     _textEditingController.clear();
   }
 

@@ -9,23 +9,23 @@ final _sampleTodos = [
   Todo('Learn Riverpod'),
 ];
 
-final todosProvider = StateNotifierProvider<TodoNotifier>((ref) {
+final todosProvider = StateNotifierProvider<TodoNotifier, List<Todo>>((ref) {
   return TodoNotifier(ref.read, _sampleTodos);
 });
 
 final completedTodos = Provider<List<Todo>>((ref) {
   // Method 4
-  final todos = ref.watch(todosProvider.state);
+  final todos = ref.watch(todosProvider);
   return todos.where((todo) => todo.completed).toList();
 });
 
 class TodoNotifier extends StateNotifier<List<Todo>> {
-  TodoNotifier(this.read, [List<Todo> state]) : super(state ?? <Todo>[]);
+  TodoNotifier(this.read, [List<Todo>? state]) : super(state ?? <Todo>[]);
 
   final Reader read;
 
   void add(String description) {
-    state = state..add(Todo(description));
+    state = [...state, Todo(description)];
   }
 
   void toggle(String id) {
@@ -47,7 +47,7 @@ class TodoNotifier extends StateNotifier<List<Todo>> {
     }).toList();
   }
 
-  void edit({@required String id, @required String description}) {
+  void edit({required String id, required String description}) {
     state = [
       for (final todo in state)
         if (todo.id == id)
@@ -75,7 +75,7 @@ class Todo {
   Todo(
     this.description, {
     this.completed = false,
-    String id,
+    String? id,
   }) : this.id = id ?? _uuid.v4();
 }
 

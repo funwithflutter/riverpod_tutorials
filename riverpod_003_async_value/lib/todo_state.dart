@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:meta/meta.dart';
 import 'package:riverpod_003_async_value/repositories/fake_todo_repository.dart';
 import 'package:riverpod_003_async_value/repositories/todo_repository.dart';
 
@@ -13,31 +12,32 @@ final todoRepositoryProvider = Provider<TodoRepository>((ref) {
   throw UnimplementedError();
 });
 
-final todosNotifierProvider = StateNotifierProvider<TodosNotifier>((ref) {
+final todosNotifierProvider =
+    StateNotifierProvider<TodosNotifier, AsyncValue<List<Todo>>>((ref) {
   return TodosNotifier(ref.read);
 });
 
 final completedTodosProvider = Provider<AsyncValue<List<Todo>>>((ref) {
-  final todosState = ref.watch(todosNotifierProvider.state);
+  final todosState = ref.watch(todosNotifierProvider);
   return todosState.whenData(
     (todos) => todos.where((todo) => todo.completed).toList(),
   );
 });
 
-final todoExceptionProvider = StateProvider<TodoException>((ref) {
+final todoExceptionProvider = StateProvider<TodoException?>((ref) {
   return null;
 });
 
 class TodosNotifier extends StateNotifier<AsyncValue<List<Todo>>> {
   TodosNotifier(
     this.read, [
-    AsyncValue<List<Todo>> todos,
+    AsyncValue<List<Todo>>? todos,
   ]) : super(todos ?? const AsyncValue.loading()) {
     _retrieveTodos();
   }
 
   final Reader read;
-  AsyncValue<List<Todo>> previousState;
+  AsyncValue<List<Todo>>? previousState;
 
   Future<void> _retrieveTodos() async {
     try {
@@ -69,7 +69,7 @@ class TodosNotifier extends StateNotifier<AsyncValue<List<Todo>>> {
 
   Future<void> add(String description) async {
     _cacheState();
-    state = state.whenData((todos) => todos..add(Todo(description)));
+    state = state.whenData((todos) => [...todos, Todo(description)]);
 
     try {
       await read(todoRepositoryProvider).addTodo(description);
@@ -104,7 +104,7 @@ class TodosNotifier extends StateNotifier<AsyncValue<List<Todo>>> {
     }
   }
 
-  Future<void> edit({@required String id, @required String description}) async {
+  Future<void> edit({required String id, required String description}) async {
     _cacheState();
     state = state.whenData((todos) {
       return [
@@ -145,7 +145,7 @@ class TodosNotifier extends StateNotifier<AsyncValue<List<Todo>>> {
 
   void _resetState() {
     if (previousState != null) {
-      state = previousState;
+      state = previousState!;
       previousState = null;
     }
   }

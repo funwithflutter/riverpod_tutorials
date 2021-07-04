@@ -21,14 +21,14 @@ abstract class TodoFailure with _$TodoFailure {
 }
 
 class TodoException implements Exception {
-  TodoException({@required this.failure});
+  const TodoException({required this.failure});
 
   final TodoFailure failure;
 
   @override
   String toString() {
     return '''
-Todo Error: ${failure?.toString()}
+Todo Error: ${failure.toString()}
     ''';
   }
 }

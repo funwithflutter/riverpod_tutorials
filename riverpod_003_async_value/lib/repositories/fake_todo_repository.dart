@@ -28,7 +28,7 @@ class FakeTodoRepository implements TodoRepository {
     mockTodoStorage = [..._sampleTodos];
   }
 
-  List<Todo> mockTodoStorage;
+  late List<Todo> mockTodoStorage;
   final Random random;
 
   @override
@@ -49,7 +49,7 @@ class FakeTodoRepository implements TodoRepository {
     if (random.nextDouble() < errorLikelihood) {
       throw const TodoException('Todo could not be added');
     } else {
-      mockTodoStorage = [...mockTodoStorage]..add(Todo(description));
+      mockTodoStorage = [...mockTodoStorage, Todo(description)];
     }
   }
 
@@ -66,7 +66,7 @@ class FakeTodoRepository implements TodoRepository {
   }
 
   @override
-  Future<void> edit({String id, String description}) async {
+  Future<void> edit({required String id, required String description}) async {
     await _waitRandomTime();
     // updating mock storage
     if (random.nextDouble() < errorLikelihood) {
