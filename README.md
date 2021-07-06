@@ -48,6 +48,8 @@ https://pub.dev/publishers/funwith.app/packages
 
 **Riverpod 004 - Freezed: Unions and Data Classes** \[ [Video](https://www.youtube.com/watch?v=U8_Z_O5iC8s) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/main/riverpod_004_freezed) \] - Learn how to use Freezed and how it improves your Riverpod development workflow.
 
+**Riverpod 005 - What's new in version 1.0.0** \[ [Video](https://www.youtube.com/watch?v=cmPexCDz9PA) \] \[ [Code](https://github.com/funwithflutter/riverpod_tutorials/tree/main/riverpod_005_version_1.0) \] - See what's new in V1.0.0 of Riverpod.
+
 ## Code Snippets
 
 The code snippets I use in Visual Studio Code to generate Freezed classes.
