@@ -1,3 +1,13 @@
+# Riverpod #005 - What's new in version 1.0.0?
+Discover the new and breaking features in Riverpod V1.0.0
+
+See the video tutorial down below:
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/cmPexCDz9PA/0.jpg)](https://www.youtube.com/watch?v=cmPexCDz9PA)
+
+Direct link: https://www.youtube.com/watch?v=cmPexCDz9PA
+
+
 There is no code associated with this release. This file contains a list of changes for version
 v1.0.0 of Riverpod.
 
